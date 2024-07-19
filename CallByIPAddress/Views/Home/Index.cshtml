@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    string userCountry = ViewBag.UserCountry;
+    string phoneNumber = userCountry == "JO" ? "0797428831" : "0502064830";
+    phoneNumber = ViewBag.UserCountry == "FromErr" ? ViewBag.err : phoneNumber;
+}
+
+<div>
+    <h2>Contact Us</h2>
+    <p> call us: @phoneNumber</p>
+    <p>@ViewBag.data</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var userCountry = '@userCountry';
+        if (userCountry == "JO") {
+            window.location.href = "tel:0797428831";
+        } else {
+            window.location.href = "tel:0502064830";
+        }
+    });
+</script>
